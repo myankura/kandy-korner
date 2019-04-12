@@ -1,9 +1,10 @@
 import React, { Component } from "react"
 
+//This component is responsible for mapping through candies and rendering them to the DOM
 export default class CandyList extends Component {
     render() {
         return(
-            <section className="candies">
+            <section className="content">
                 <h3>Our Candies</h3>
                 {
                     this.props.candies.map(candy =>

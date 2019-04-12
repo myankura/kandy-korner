@@ -1,56 +1,19 @@
 import React, { Component } from "react"
-import LocationList from "./location/LocationList"
-import EmployeeList from "./employee/EmployeeList"
-import CandyList from "./candy/CandyList"
+import NavBar from "./nav/NavBar"
+import ApplicationViews from "./ApplicationViews"
 
+import "./kandykorner.css"
+//Do not forget to run npm install react-router-dom bootstrap at root folder before using this dependency.
+import "bootstrap/dist/css/bootstrap.min.css"
 
-// Store locations
-// Employees
-// Candy types
-// Individual candies
-class KandyKorn extends Component {
-    // Store locations
-    locationsFromAPI = [
-        { id: 1, name: "North Nashville" },
-        { id: 2, name: "East Nashville" }
-    ]
-    // Employees
-    employeesFromAPI = [
-        { id: 1, name: "Michael" },
-        { id: 2, name: "Ted" }
-    ]
-    // Candy types
-    typesFromAPI = [
-        { id: 1, type: "Chocolate" },
-        { id: 2, type: "Hard Candy" }
-    ]
-    // Individual candies
-    candiesFromAPI = [
-        { id: 1, name: "Butterfinger", type_Id: 1 },
-        { id: 2, name: "Jolly Rancher", type_Id: 2 }
-    ]
-
-    state = {
-        locations: this.locationsFromAPI,
-        employees: this.employeesFromAPI,
-        types: this.typesFromAPI,
-        candies: this.candiesFromAPI
-    }
-
-    // <StoreList />
-    // <EmployeeList />
-    // <CandyList />
+//This script file is responsible for displaying the NavBar and ApplicationsView
+export default class KandyKorner extends Component {
     render() {
-        return (
-            <article className="kandykorner">
-                <LocationList locations={this.state.locations} />
-                <EmployeeList employees={this.state.employees} />
-                <CandyList candies={this.state.candies} />
-            </article>
+        return(
+            <React.Fragment>
+                <NavBar />
+                <ApplicationViews />
+            </React.Fragment>
         )
     }
 }
-
-
-
-export default KandyKorn
