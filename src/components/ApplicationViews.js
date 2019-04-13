@@ -4,7 +4,7 @@ import LocationList from './location/LocationList'
 import EmployeeList from './employee/EmployeeList'
 import CandyList from './candy/CandyList'
 
-//Responsible for acting as an API.  This will soon be replaced by an API that will serve the same functionality that this code is doing now.
+//Acting as an API
 export default class ApplicationsView extends Component {
     // Store locations
     locationsFromAPI = [
@@ -18,13 +18,13 @@ export default class ApplicationsView extends Component {
     ]
     // Candy types
     typesFromAPI = [
-        { id: 1, type: "Chocolate" },
-        { id: 2, type: "Hard Candy" }
+        { id: 1, name: "Chocolate" },
+        { id: 2, name: "Hard Candy" }
     ]
     // Individual candies
     candiesFromAPI = [
-        { id: 1, name: "Butterfinger", type_Id: 1 },
-        { id: 2, name: "Jolly Rancher", type_Id: 2 }
+        { id: 1, name: "Butterfinger", typeId: 1 },
+        { id: 2, name: "Jolly Rancher", typeId: 2 }
     ]
 
     state = {
@@ -34,7 +34,7 @@ export default class ApplicationsView extends Component {
         candies: this.candiesFromAPI
     }
 
-    //This is what is responsible for routing traffic for the NavBar
+    //This is what is responsible for passing data to each respective component
     render() {
         return (
             <React.Fragment>
@@ -45,7 +45,7 @@ export default class ApplicationsView extends Component {
                     return <EmployeeList employees={this.state.employees} />
                 }} />
                 <Route path="/candies" render={(props) => {
-                    return <CandyList candies={this.state.candies} />
+                    return <CandyList candies={this.state.candies}  types={this.state.types} />
                 }} />
             </React.Fragment>
         )
