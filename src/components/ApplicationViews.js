@@ -6,32 +6,30 @@ import CandyList from './candy/CandyList'
 
 //Acting as an API
 export default class ApplicationsView extends Component {
-    // Store locations
-    locationsFromAPI = [
-        { id: 1, name: "North Nashville", address: "606 Champs Lane" },
-        { id: 2, name: "East Nashville", address: "431 Studious Road" }
-    ]
-    // Employees
-    employeesFromAPI = [
-        { id: 1, name: "Michael" },
-        { id: 2, name: "Ted" }
-    ]
-    // Candy types
-    typesFromAPI = [
-        { id: 1, name: "Chocolate" },
-        { id: 2, name: "Hard Candy" }
-    ]
-    // Individual candies
-    candiesFromAPI = [
-        { id: 1, name: "Butterfinger", typeId: 1 },
-        { id: 2, name: "Jolly Rancher", typeId: 2 }
-    ]
 
     state = {
-        locations: this.locationsFromAPI,
-        employees: this.employeesFromAPI,
-        types: this.typesFromAPI,
-        candies: this.candiesFromAPI
+        locations: [],
+        employees: [],
+        types: [],
+        candies: []
+    }
+
+    componentDidMount() {
+        const newState = {}
+
+        fetch("http://localhost:5002/locations")
+            .then(r => r.json())
+            .then(locations => newState.locations = locations)
+            .then(() => fetch("http://localhost:5002/employees"))
+            .then(r => r.json())
+            .then(employees => newState.employees = employees)
+            .then(() => fetch("http://localhost:5002/types"))
+            .then(r => r.json())
+            .then(types => newState.types = types)
+            .then(() => fetch("http://localhost:5002/candies"))
+            .then(r => r.json())
+            .then(candies => newState.candies = candies)
+            .then(() => this.setState(newState))
     }
 
     //This is what is responsible for passing data to each respective component
