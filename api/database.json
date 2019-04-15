@@ -1,0 +1,46 @@
+{
+	"locations": [
+        {
+			"id": 1,
+			"name": "North Nashville",
+			"address": "606 Champs Lane"
+		},
+		{
+			"id": 2,
+			"name": "East Nashville",
+			"address": "431 Studious Road"
+		}
+	],
+	"employees": [
+        {
+			"id": 1,
+			"name": "Michael"
+		},
+		{
+			"id": 2,
+			"name": "Ted"
+		}
+	],
+	"types": [
+        {
+			"id": 1,
+			"name": "Chocolate"
+		},
+		{
+			"id": 2,
+			"name": "Hard Candy"
+		}
+	],
+	"candies": [
+        {
+			"id": 1,
+			"name": "Butterfinger",
+			"typeId": 1
+		},
+		{
+			"id": 2,
+			"name": "Jolly Rancher",
+			"typeId": 2
+		}
+	]
+}
