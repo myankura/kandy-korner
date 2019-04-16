@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
+import "./NavBar.css"
 
 //Do not forget to run npm install react-router-dom bootstrap at root folder before using this dependency.
 import "bootstrap/dist/css/bootstrap.min.css"
